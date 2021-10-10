@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 		display: flex;
 		min-height: 100%;
 		width: 100vw;
+		font-size: 16px;
 		max-width: 100vw;
 		-webkit-overflow-scrolling: touch;
 		-webkit-text-size-adjust: 100%;
@@ -18,9 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 	}
 	#launcher {
 		display: none;
-	}
-	html {
-		font-size: 16px;
 	}
 	body.overflowHide {
 		position: fixed;

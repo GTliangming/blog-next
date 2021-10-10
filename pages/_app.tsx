@@ -2,9 +2,9 @@ import Layout from "components/Layout";
 import App, { AppContext } from "next/app";
 import Head from "next/head";
 import React from "react";
-import "assets/scss/globals.css";
 import Constant, { UserInfo } from "utils/constant";
 import { BaseRequest } from "utils/context";
+import { GlobalStyle } from "utils/globalStyle";
 
 export interface AppProps {
   language: string;
@@ -50,7 +50,8 @@ export default class MyApp extends App<AppProps> {
       Constant.customerInfo = customerInfo;
     }
     return (
-      <>
+      <React.Fragment>
+        <GlobalStyle />
         <Head>
           <meta charSet="utf-8" />
           <meta
@@ -62,7 +63,7 @@ export default class MyApp extends App<AppProps> {
         <Layout path={path} query={query} userInfo={customerInfo} showHeader={pageProps.showHeader} language={language}>
           <Component {...pageProps} localeObj={localeObj} />
         </Layout>
-      </>
+      </React.Fragment>
     );
   }
 }
