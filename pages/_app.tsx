@@ -2,9 +2,7 @@ import Layout from "components/Layout";
 import App, { AppContext } from "next/app";
 import Head from "next/head";
 import React from "react";
-// import "assets/scss/base.scss";
-// import "assets/fonts/font.scss";
-// import "assets/iconfont/iconfont.css";
+import "assets/scss/globals.css";
 import Constant, { UserInfo } from "utils/constant";
 import { BaseRequest } from "utils/context";
 
@@ -54,7 +52,12 @@ export default class MyApp extends App<AppProps> {
     return (
       <>
         <Head>
-          <title>{"ezship global shipping service，Best service，Fast and cheap"}</title>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+          />
+          <title>{"飞竹 - soar bamboos"}</title>
         </Head>
         <Layout path={path} query={query} userInfo={customerInfo} showHeader={pageProps.showHeader} language={language}>
           <Component {...pageProps} localeObj={localeObj} />

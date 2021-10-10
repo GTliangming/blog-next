@@ -1,6 +1,6 @@
 import React from "react";
-import cx from "classnames";
 import { UserInfo } from "utils/constant";
+import { Footer, Nav, NavContent } from "./common";
 interface EzShipHeaderNav {
 	title: string;
 	link?: string;
@@ -80,8 +80,8 @@ export default class Layout extends React.Component<LayoutProps> {
 		const { showHeader, children } = this.props;
 
 		return (
-			<div >
-				{showHeader && (
+			<div style={{ width: "100%" }}>
+				{/* {showHeader && (
 					<header >
 						<div>
 							<ul >
@@ -98,15 +98,26 @@ export default class Layout extends React.Component<LayoutProps> {
 						</div>
 					</header>
 				)
-				}
+				} */}
+				<Nav>
+					<NavContent>
+						{navList().map((item, index) => (
+							<div
+								key={index}
+							>
+								<a {...(item.needLogin ? { onClick: () => this.jumpLink(item.link) } : { href: item.link })}>{item.title}</a>
+							</div>
+						))}
+					</NavContent>
+				</Nav>
 				<main
-					style={{ minHeight: !showHeader ? `calc(100vh - 40px)` : undefined }}
+					style={{ minHeight: !showHeader ? `calc(100vh - 40px)` : undefined, marginTop: 60 }}
 				>
 					{children}
 				</main>
-				<footer >
+				<Footer>
 					<p>Copyright © 2021 www.ezbuy.com All Rights Reserved.</p>
-				</footer>
+				</Footer>
 			</div >
 		);
 	}

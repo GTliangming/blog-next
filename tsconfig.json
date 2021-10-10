@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "target": "es5",
     "lib": [
@@ -16,17 +15,14 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "noUnusedLocals": true,
     "resolveJsonModule": true,
-    "downlevelIteration": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./src",
-    "outDir": "lib"
+    "downlevelIteration": true
   },
   "exclude": [
-    "node_modules",
-    "lib",
+    "node_modules"
   ],
   "include": [
     "next-env.d.ts",

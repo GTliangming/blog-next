@@ -2,11 +2,6 @@ const webpack = require("webpack");
 const moduleExports = {
   inlineImageLimit: 20480,
   webpack: (config, { isServer }) => {
-    // if (!isServer) {
-    //   config.node = {
-    //     fs: "empty",
-    //   };
-    // }
     config.plugins.push(
       new webpack.DefinePlugin({
         __SERVER__: isServer,
