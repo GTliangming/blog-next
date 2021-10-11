@@ -6,7 +6,8 @@
     "dev": "yarn && next -p 3499",
     "build": "next build",
     "start": "next start -p 3499",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "next": "11.1.2",
