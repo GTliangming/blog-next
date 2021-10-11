@@ -1,6 +1,6 @@
 import React from "react";
 import { UserInfo } from "utils/constant";
-import { Footer, Nav, NavContent } from "./common";
+import { Footer, Nav, NavContent, NavItem } from "./common";
 interface EzShipHeaderNav {
 	title: string;
 	link?: string;
@@ -12,29 +12,29 @@ interface EzShipHeaderNav {
 const navList = (): EzShipHeaderNav[] => {
 	return [
 		{
-			title: "Home Page",
+			title: "首页",
 			link: "/",
 		},
 		{
-			title: "Warehouse Info",
-			link: "/warehouse",
+			title: "测试",
+			link: "/test",
 			needLogin: true,
 		},
 		{
-			title: "Shipping",
+			title: "留言",
 			link: "/order/new",
 		},
 		{
-			title: "Orders",
+			title: "关于",
 			link: "/order",
 			needLogin: true,
 		},
 		{
-			title: "Freight Estimate",
+			title: "我的",
 			link: "/calculator",
 		},
 		{
-			title: "Help Center",
+			title: "设置",
 			link: "/help/orderrelated/list",
 		},
 	];
@@ -44,28 +44,17 @@ interface LayoutProps {
 	path: string;
 	query: Record<string, string>;
 	userInfo?: UserInfo;
-	showHeader: boolean;
 	hideUser: boolean;
 	language: string;
+	isShowNav: boolean;
 }
 
 export default class Layout extends React.Component<LayoutProps> {
 	static defaultProps = {
 		showHeader: true,
-		hideUser: false
+		hideUser: false,
+		isShowNav: false
 	};
-
-	show = (isRegister?: boolean) => {
-		// LoginAndRegisterModal.show({ language: this.props.language, isRegister }, () => window.location.reload());
-	};
-
-	logOut = () => {
-		// Logout({}).then(() => {
-		// 	Constant.customerInfo = undefined;
-		// 	location.reload();
-		// });
-	};
-
 	jumpLink = (link: string) => {
 		// if (!Constant.customerInfo) {
 		// 	LoginAndRegisterModal.show({ language: this.props.language }, () => {
@@ -77,41 +66,22 @@ export default class Layout extends React.Component<LayoutProps> {
 		location.href = link;
 	}
 	render() {
-		const { showHeader, children } = this.props;
-
+		const { children, isShowNav } = this.props;
 		return (
 			<div style={{ width: "100%" }}>
-				{/* {showHeader && (
-					<header >
-						<div>
-							<ul >
-								{navList().map((item, index) => (
-									<li
-										key={index}
-									>
-										<a {...(item.needLogin ? { onClick: () => this.jumpLink(item.link) } : { href: item.link })}>{item.title}</a>
-									</li>
-								))}
-							</ul>
-
-
-						</div>
-					</header>
-				)
-				} */}
-				<Nav>
+				{isShowNav && <Nav>
 					<NavContent>
 						{navList().map((item, index) => (
-							<div
+							<NavItem
 								key={index}
 							>
 								<a {...(item.needLogin ? { onClick: () => this.jumpLink(item.link) } : { href: item.link })}>{item.title}</a>
-							</div>
+							</NavItem>
 						))}
 					</NavContent>
-				</Nav>
+				</Nav>}
 				<main
-					style={{ minHeight: !showHeader ? `calc(100vh - 40px)` : undefined, marginTop: 60 }}
+					style={{ minHeight: !isShowNav ? "calc(100vh - 60px)" : undefined, marginTop: 60 }}
 				>
 					{children}
 				</main>

@@ -5,6 +5,7 @@ import React from "react";
 import Constant, { UserInfo } from "utils/constant";
 import { BaseRequest } from "utils/context";
 import { GlobalStyle } from "utils/globalStyle";
+import { PageStatic } from "utils/types";
 
 export interface AppProps {
   language: string;
@@ -41,11 +42,10 @@ export default class MyApp extends App<AppProps> {
     };
   }
 
-  componentDidMount() {
-  }
 
   render() {
     const { Component, pageProps, localeObj, path, query, language, customerInfo } = this.props;
+    const { SHOW_NAV } = (Component as unknown) as PageStatic;
     if (!__SERVER__) {
       Constant.customerInfo = customerInfo;
     }
@@ -60,9 +60,10 @@ export default class MyApp extends App<AppProps> {
           />
           <title>{"飞竹 - soar bamboos"}</title>
         </Head>
-        <Layout path={path} query={query} userInfo={customerInfo} showHeader={pageProps.showHeader} language={language}>
+        {SHOW_NAV ? <Layout path={path} query={query} userInfo={customerInfo} isShowNav={SHOW_NAV} language={language}>
           <Component {...pageProps} localeObj={localeObj} />
-        </Layout>
+        </Layout> : <Component {...pageProps} localeObj={localeObj} />}
+
       </React.Fragment>
     );
   }
