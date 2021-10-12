@@ -22,16 +22,16 @@ const navList = (): EzShipHeaderNav[] => {
 		},
 		{
 			title: "留言",
-			link: "/order/new",
+			link: "/news",
 		},
 		{
 			title: "关于",
-			link: "/order",
+			link: "/fors",
 			needLogin: true,
 		},
 		{
 			title: "我的",
-			link: "/calculator",
+			link: "/mine",
 		},
 		{
 			title: "设置",
