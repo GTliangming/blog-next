@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "yarn && next -p 8081",
     "build": "next build",
-    "start": "next start -p 8081",
+    "start": "next build && next start -p 8081",
     "lint": "next lint",
     "export": "next export"
   },
