@@ -4,8 +4,8 @@ COPY . /home/eggProject
 
 WORKDIR /home/eggProject
 
-RUN npm install \
-    && npm run build
+RUN npm install 
+
 LABEL Descripttion="This image is build for web"
 
 EXPOSE 8081
