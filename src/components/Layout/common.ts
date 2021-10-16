@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 export const Nav = styled.nav`
     width: 100vw;
     position: fixed;
@@ -44,4 +44,23 @@ export const NavItem = styled.div`
 export const Footer = styled.footer`
     width: 100vw;
     text-align: center;
+`;
+
+
+export const MainCounter = styled.main`
+    width:100%;
+    min-height:undefined;
+    margin-top:0px;
+    ${(props: { isShowNav: boolean }) =>
+    !props.isShowNav &&
+        css`
+            min-height:calc(100vh - 60px);
+        `
+    }
+    ${(props: { isShowNav: boolean }) =>
+    props.isShowNav &&
+        css`
+            margin-top:60px;
+        `
+    }
 `;

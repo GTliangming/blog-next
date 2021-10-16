@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn && next -p 8081",
+    "dev": " next -p 8081",
     "build": "next build",
     "start": "next build && next start -p 8081",
     "lint": "next lint",

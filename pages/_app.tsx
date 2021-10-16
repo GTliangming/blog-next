@@ -83,9 +83,9 @@ export default class MyApp extends App<AppProps> {
           />
           <title>{"飞竹 - soar bamboos"}</title>
         </Head>
-        {SHOW_NAV ? <Layout path={path} query={query} userInfo={customerInfo} isShowNav={SHOW_NAV} language={language}>
+        <Layout path={path} query={query} userInfo={customerInfo} isShowNav={SHOW_NAV} language={language}>
           <Component {...pageProps} localeObj={localeObj} />
-        </Layout> : <Component {...pageProps} localeObj={localeObj} />}
+        </Layout> 
         <LoadingModal isNav={SHOW_NAV} />
       </React.Fragment>
     );

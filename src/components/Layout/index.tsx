@@ -1,6 +1,6 @@
 import React from "react";
 import { UserInfo } from "utils/constant";
-import { Footer, Nav, NavContent, NavItem } from "./common";
+import { Footer, MainCounter, Nav, NavContent, NavItem } from "./common";
 interface EzShipHeaderNav {
 	title: string;
 	link?: string;
@@ -67,6 +67,7 @@ export default class Layout extends React.Component<LayoutProps> {
 	}
 	render() {
 		const { children, isShowNav } = this.props;
+		console.log(3333,isShowNav)
 		return (
 			<div style={{ width: "100%" }}>
 				{isShowNav && <Nav>
@@ -80,11 +81,9 @@ export default class Layout extends React.Component<LayoutProps> {
 						))}
 					</NavContent>
 				</Nav>}
-				<main
-					style={{ minHeight: !isShowNav ? "calc(100vh - 60px)" : undefined, marginTop: 60 }}
-				>
+				<MainCounter isShowNav={isShowNav}>
 					{children}
-				</main>
+				</MainCounter>
 				<Footer>
 					<p>Copyright © 2021 www.ezbuy.com All Rights Reserved.</p>
 				</Footer>
