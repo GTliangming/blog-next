@@ -5,9 +5,10 @@
   "scripts": {
     "dev": " next -p 8081",
     "build": "next build",
-    "start": "next build && next start -p 8081",
+    "start": "next start -p 8081",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next export",
+    "prestart": "npm run build"
   },
   "dependencies": {
     "next": "11.1.2",

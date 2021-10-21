@@ -1,11 +1,15 @@
 FROM docker.io/node:12.22.2
 
-COPY . /home/next-blog
+RUN  mkdir -p /home/next-blog
+
+COPY ./** /home/next-blog
 
 WORKDIR /home/next-blog
 
-RUN  pwd && ls && npm install 
+RUN  npm install 
 
+ENV HOST 0.0.0.0
+ENV PORT 8081
 EXPOSE 8081
 
 CMD [ "npm", "start" ]
