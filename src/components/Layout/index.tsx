@@ -67,7 +67,6 @@ export default class Layout extends React.Component<LayoutProps> {
 	}
 	render() {
 		const { children, isShowNav } = this.props;
-		console.log(3333,isShowNav)
 		return (
 			<div style={{ width: "100%" }}>
 				{isShowNav && <Nav>
@@ -85,7 +84,7 @@ export default class Layout extends React.Component<LayoutProps> {
 					{children}
 				</MainCounter>
 				<Footer>
-					<p>Copyright © 2021 www.ezbuy.com All Rights Reserved.</p>
+					<a href="http://www.beian.miit.gov.cn" target="_blank" rel="nofollow">陕ICP备19024533号-3</a>
 				</Footer>
 			</div >
 		);

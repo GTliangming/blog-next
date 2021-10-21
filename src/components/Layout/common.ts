@@ -44,6 +44,13 @@ export const NavItem = styled.div`
 export const Footer = styled.footer`
     width: 100vw;
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom:30px;
+    &>a:hover{
+        cursor: pointer;
+       color: -webkit-link;
+    }
 `;
 
 
@@ -52,13 +59,13 @@ export const MainCounter = styled.main`
     min-height:undefined;
     margin-top:0px;
     ${(props: { isShowNav: boolean }) =>
-    !props.isShowNav &&
+        !props.isShowNav &&
         css`
             min-height:calc(100vh - 60px);
         `
     }
     ${(props: { isShowNav: boolean }) =>
-    props.isShowNav &&
+        props.isShowNav &&
         css`
             margin-top:60px;
         `
