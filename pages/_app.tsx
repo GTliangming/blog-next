@@ -7,9 +7,9 @@ import Constant, { UserInfo } from "utils/constant";
 import { BaseRequest } from "utils/context";
 import { GlobalStyle } from "utils/globalStyle";
 import { PageStatic } from "utils/types";
-import { getStore as GetLoadingStore } from "stores/LoadingStore";
-import Router from "next/router";
-const loadingStore = GetLoadingStore();
+// import { getStore as GetLoadingStore } from "stores/LoadingStore";
+// import Router from "next/router";
+// const loadingStore = GetLoadingStore();
 export interface AppProps {
   language: string;
   languageCodes: string[];
@@ -45,26 +45,26 @@ export default class MyApp extends App<AppProps> {
     };
   }
   async componentDidMount() {
-    Router.events.on("routeChangeStart", this.showLoading);
-    Router.events.on("routeChangeComplete", this.routeChangeComplete);
-    Router.events.on("routeChangeError", loadingStore.hideLoading);
+    // Router.events.on("routeChangeStart", this.showLoading);
+    // Router.events.on("routeChangeComplete", this.routeChangeComplete);
+    // Router.events.on("routeChangeError", loadingStore.hideLoading);
   }
   componentWillUnmount() {
-    Router.events.off("routeChangeStart", this.showLoading);
-    Router.events.off("routeChangeComplete", this.routeChangeComplete);
-    Router.events.off("routeChangeError", loadingStore.hideLoading);
+    // Router.events.off("routeChangeStart", this.showLoading);
+    // Router.events.off("routeChangeComplete", this.routeChangeComplete);
+    // Router.events.off("routeChangeError", loadingStore.hideLoading);
   }
-  showLoading = () => {
-    setTimeout(loadingStore.showLoading);
-  };
-  routeChangeComplete = () => {
-    loadingStore.hideLoading();
-    try {
-      window.scrollTo(0, 0);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  // showLoading = () => {
+  //   setTimeout(loadingStore.showLoading);
+  // };
+  // routeChangeComplete = () => {
+  //   loadingStore.hideLoading();
+  //   try {
+  //     window.scrollTo(0, 0);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
   render() {
     const { Component, pageProps, localeObj, path, query, language, customerInfo } = this.props;
     const { SHOW_NAV } = (Component as unknown) as PageStatic;

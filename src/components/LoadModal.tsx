@@ -107,7 +107,8 @@ export default class LoadingModal extends React.Component<LoadingModalProps, {}>
     };
     loadingStore = getStore();
     render() {
-        const { isLoading } = this.loadingStore;
+        // const { isLoading } = this.loadingStore;
+        const isLoading = false;
         return isLoading ? <Loading isNav={this.props.isNav} /> : null;
     }
 }
