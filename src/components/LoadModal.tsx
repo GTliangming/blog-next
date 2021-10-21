@@ -1,5 +1,5 @@
 import * as React from "react";
-import { observer } from "mobx-react";
+// import { observer } from "mobx-react";
 import styled, { css, keyframes } from "styled-components";
 import { getStore } from "stores/LoadingStore";
 
@@ -100,7 +100,7 @@ export function Loading(props) {
 interface LoadingModalProps {
     isNav?: boolean
 }
-@observer
+// @observer
 export default class LoadingModal extends React.Component<LoadingModalProps, {}> {
     static defaultProps: LoadingModalProps = {
         isNav: true
