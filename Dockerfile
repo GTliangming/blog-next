@@ -20,4 +20,4 @@ FROM node:alpine AS runner
 ENV HOST 0.0.0.0 &&  PORT 8081
 EXPOSE 8081
 
-CMD [ "cnpm", "start" ]
+CMD [ "npm", "start" ]
