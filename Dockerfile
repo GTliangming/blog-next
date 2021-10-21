@@ -2,7 +2,7 @@ FROM docker.io/node:12.22.2
 
 RUN  mkdir -p /home/next-blog
 
-COPY ./** /home/next-blog
+COPY . /home/next-blog
 
 WORKDIR /home/next-blog
 
