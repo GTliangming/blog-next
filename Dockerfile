@@ -4,8 +4,8 @@ COPY . /home/next-blog
 
 WORKDIR /home/next-blog
 
-RUN  yarn
+RUN  pwd && ls && npm install 
 
 EXPOSE 8081
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
