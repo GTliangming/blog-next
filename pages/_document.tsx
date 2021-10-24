@@ -50,8 +50,8 @@ class AntDocument extends Document<CustomizeProps> {
 					<meta name="full-screen" content="yes" />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
 					<meta name="mobile-web-app-capable" content="yes" />
-					<link rel="icon" href="/icon.ico" type="image/x-icon" />
-					<link rel="apple-touch-icon" href="/icon.ico" type="image/x-icon" />
+					<link rel="icon" href="/yahu.ico" type="image/x-icon" />
+					<link rel="apple-touch-icon" href="/yahu.ico" type="image/x-icon" />
 				</Head>
 				<body>
 					<Main />

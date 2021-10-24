@@ -10,6 +10,11 @@ import { PageStatic } from "utils/types";
 // import { getStore as GetLoadingStore } from "stores/LoadingStore";
 // import Router from "next/router";
 // const loadingStore = GetLoadingStore();
+
+
+if (!__SERVER__) {
+  require("assets/iconfont/iconfont");
+}
 export interface AppProps {
   language: string;
   languageCodes: string[];
