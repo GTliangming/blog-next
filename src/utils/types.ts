@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import { GetServerSidePropsContext, NextPageContext } from "next";
 import { AppContext } from "next/app";
-import { NextApiRequestCookies } from "next/dist/server/api-utils";
+import { NextApiRequestCookies } from "next/dist/next-server/server/api-utils";
 import { DocumentContext as OriginDocumentContext } from "next/document";
 export interface BaseInfo {
 	cookie: string;
