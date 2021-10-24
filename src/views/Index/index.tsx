@@ -13,7 +13,7 @@ export const SideBar = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("./cover.jpeg");
+    background-image: url(${require("./images/cover.jpeg")});
 `;
 
 export default class Index extends React.Component {
@@ -21,7 +21,7 @@ export default class Index extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <SideBar ></SideBar>
+                首页
             </React.Fragment>
         );
     }

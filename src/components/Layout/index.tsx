@@ -1,44 +1,47 @@
+import { Button } from "components/Button";
 import React from "react";
 import { UserInfo } from "utils/constant";
 import { Footer, MainCounter, Nav, NavContent, NavItem } from "./common";
+import LeftSideBar from "./sideBarLeft";
+import RightSideBar from "./sideBarRight";
 interface EzShipHeaderNav {
 	title: string;
 	link?: string;
 	needLogin?: boolean;
-	subs?: EzShipHeaderNav[];
+	// subs?: EzShipHeaderNav[];
 	class?: string;
 }
 
-const navList = (): EzShipHeaderNav[] => {
-	return [
-		{
-			title: "首页",
-			link: "/",
-		},
-		{
-			title: "测试",
-			link: "/test",
-			needLogin: true,
-		},
-		{
-			title: "留言",
-			link: "/news",
-		},
-		{
-			title: "关于",
-			link: "/fors",
-			needLogin: true,
-		},
-		{
-			title: "我的",
-			link: "/mine",
-		},
-		{
-			title: "设置",
-			link: "/help/orderrelated/list",
-		},
-	];
-}
+// const navList = (): EzShipHeaderNav[] => {
+// 	return [
+// 		{
+// 			title: "首页",
+// 			link: "/",
+// 		},
+// 		{
+// 			title: "测试",
+// 			link: "/test",
+// 			needLogin: true,
+// 		},
+// 		{
+// 			title: "留言",
+// 			link: "/news",
+// 		},
+// 		{
+// 			title: "关于",
+// 			link: "/fors",
+// 			needLogin: true,
+// 		},
+// 		{
+// 			title: "我的",
+// 			link: "/mine",
+// 		},
+// 		{
+// 			title: "设置",
+// 			link: "/help/orderrelated/list",
+// 		},
+// 	];
+// }
 
 interface LayoutProps {
 	path: string;
@@ -69,7 +72,8 @@ export default class Layout extends React.Component<LayoutProps> {
 		const { children, isShowNav } = this.props;
 		return (
 			<div style={{ width: "100%" }}>
-				{isShowNav && <Nav>
+				<LeftSideBar />
+				{/* {isShowNav && <Nav>
 					<NavContent>
 						{navList().map((item, index) => (
 							<NavItem
@@ -79,13 +83,17 @@ export default class Layout extends React.Component<LayoutProps> {
 							</NavItem>
 						))}
 					</NavContent>
-				</Nav>}
-				<MainCounter isShowNav={isShowNav}>
-					{children}
-				</MainCounter>
-				<Footer>
-					<a href="http://www.beian.miit.gov.cn" target="_blank" rel="nofollow">陕ICP备19024533号-3</a>
-				</Footer>
+				</Nav>} */}
+				<RightSideBar>
+					<Button>点击出现</Button>
+					<MainCounter isShowNav={isShowNav}>
+						{children}
+					</MainCounter>
+					<Footer>
+						<a href="http://www.beian.miit.gov.cn" target="_blank" rel="nofollow">陕ICP备19024533号-3</a>
+					</Footer>
+				</RightSideBar>
+
 			</div >
 		);
 	}

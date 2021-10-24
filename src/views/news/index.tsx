@@ -1,17 +1,17 @@
 import * as React from "react";
-// import { getStore as getLoadingStore } from "stores/LoadingStore";
-// const loadingStore = getLoadingStore();
+import { getStore as getLoadingStore } from "stores/LoadingStore";
+const loadingStore = getLoadingStore();
 export default class New extends React.Component {
     static SHOW_NAV = false;
 
     testLoading = (show: boolean = true) => {
 
         console.log(show)
-        // if (show) {
-        //     loadingStore.showLoading();
-        //     return;
-        // }
-        // loadingStore.hideLoading();
+        if (show) {
+            loadingStore.showLoading();
+            return;
+        }
+        loadingStore.hideLoading();
     }
     render() {
         return <div>新的

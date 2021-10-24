@@ -71,3 +71,31 @@ export const MainCounter = styled.main`
         `
     }
 `;
+export const SideBarLeft = styled.div`
+    width: 34.72vw;
+    font-family: "Open Sans",sans-serif;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(17,26,35,0);
+    overflow: auto;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(${require("assets/images/cover.jpeg")});
+`;
+export const SideBarRightContent = styled.div`
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left:34.72vw;
+`;
+export const SideBarRight = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+`;
