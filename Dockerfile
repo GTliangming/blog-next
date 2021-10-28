@@ -10,8 +10,7 @@ COPY package.json /home/next-blog/
 COPY yarn.lock /home/next-blog/
 
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org \
-    &&  cnpm install \
-    &&  cnpm install @babel/plugin-proposal-decorators
+    &&  cnpm install 
 
 ENV HOST 0.0.0.0 &&  PORT 8081
 EXPOSE 8081
