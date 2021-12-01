@@ -40,7 +40,11 @@ const moduleExports = {
             },
           },
         ],
-      }
+      },
+      {
+        test: /\.md$/,
+        use: "raw-loader"
+      },
     );
     return config;
   },

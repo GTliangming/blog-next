@@ -1,4 +1,4 @@
-FROM docker.io/node:12.22.2
+FROM node:12-alpine
 
 RUN  mkdir -p /home/next-blog
 

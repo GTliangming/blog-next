@@ -72,7 +72,7 @@ export default class Layout extends React.Component<LayoutProps> {
 		const { children, isShowNav } = this.props;
 		return (
 			<div style={{ width: "100%" }}>
-				<LeftSideBar />
+				{/* <LeftSideBar /> */}
 				{/* {isShowNav && <Nav>
 					<NavContent>
 						{navList().map((item, index) => (
@@ -84,15 +84,15 @@ export default class Layout extends React.Component<LayoutProps> {
 						))}
 					</NavContent>
 				</Nav>} */}
-				<RightSideBar>
-					<Button>点击出现</Button>
-					<MainCounter isShowNav={isShowNav}>
-						{children}
-					</MainCounter>
-					<Footer>
-						<a href="http://www.beian.miit.gov.cn" target="_blank" rel="nofollow">陕ICP备19024533号-3</a>
-					</Footer>
-				</RightSideBar>
+				{/* <RightSideBar> */}
+				{/* <Button>点击出现</Button> */}
+				<MainCounter isShowNav={isShowNav}>
+					{children}
+				</MainCounter>
+				<Footer>
+					<a href="http://www.beian.miit.gov.cn" target="_blank" rel="nofollow">陕ICP备19024533号-3</a>
+				</Footer>
+				{/* </RightSideBar> */}
 
 			</div >
 		);
