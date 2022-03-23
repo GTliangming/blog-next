@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-// import { SideBar } from "./common";
 export const SideBar = styled.div`
     width: 34.72vw;
     font-family: "Open Sans",sans-serif;
@@ -17,7 +16,7 @@ export const SideBar = styled.div`
 `;
 
 export default class Index extends React.Component {
-    static SHOW_NAV = false;
+    static SHOW_NAV = true;
     render() {
         return (
             <React.Fragment>

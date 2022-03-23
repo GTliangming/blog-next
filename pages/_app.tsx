@@ -72,11 +72,10 @@ export default class MyApp extends App<AppProps> {
   };
   render() {
     const { Component, pageProps, localeObj, path, query, language, customerInfo } = this.props;
-    const { SHOW_NAV } = (Component as unknown) as PageStatic;
+    const { SHOW_NAV, COMMON_PAGE } = (Component as unknown) as PageStatic;
     if (!__SERVER__) {
       Constant.customerInfo = customerInfo;
     }
-    console.log(66666, SHOW_NAV);
     return (
       <React.Fragment>
         <GlobalStyle />
@@ -88,7 +87,7 @@ export default class MyApp extends App<AppProps> {
           />
           <title>哈哈哈</title>
         </Head>
-        <Layout path={path} query={query} userInfo={customerInfo} isShowNav={SHOW_NAV} language={language}>
+        <Layout path={path} query={query} userInfo={customerInfo} isShowNav={SHOW_NAV} language={language} isCommonPage={COMMON_PAGE}>
           <Component {...pageProps} localeObj={localeObj} />
         </Layout>
         <LoadingModal isNav={SHOW_NAV} />

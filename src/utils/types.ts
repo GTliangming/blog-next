@@ -40,4 +40,5 @@ export interface PageStatic {
 	HEADER_TYPE: HeaderType;
 	BACK_FUNC: () => void;
 	SHOW_NAV: boolean;
+	COMMON_PAGE: boolean;
 }

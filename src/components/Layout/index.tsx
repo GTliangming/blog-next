@@ -1,16 +1,16 @@
-import { Button } from "components/Button";
+// import { Button } from "components/Button";
 import React from "react";
 import { UserInfo } from "utils/constant";
-import { Footer, MainCounter, Nav, NavContent, NavItem } from "./common";
-import LeftSideBar from "./sideBarLeft";
-import RightSideBar from "./sideBarRight";
-interface EzShipHeaderNav {
-	title: string;
-	link?: string;
-	needLogin?: boolean;
-	// subs?: EzShipHeaderNav[];
-	class?: string;
-}
+import { Footer, MainCounter } from "./common";
+// import LeftSideBar from "./sideBarLeft";
+// import RightSideBar from "./sideBarRight";
+// interface EzShipHeaderNav {
+// 	title: string;
+// 	link?: string;
+// 	needLogin?: boolean;
+// 	// subs?: EzShipHeaderNav[];
+// 	class?: string;
+// }
 
 // const navList = (): EzShipHeaderNav[] => {
 // 	return [
@@ -50,13 +50,15 @@ interface LayoutProps {
 	hideUser: boolean;
 	language: string;
 	isShowNav: boolean;
+	isCommonPage: boolean;
 }
 
 export default class Layout extends React.Component<LayoutProps> {
 	static defaultProps = {
 		showHeader: true,
 		hideUser: false,
-		isShowNav: false
+		isShowNav: false,
+		isCommonPage: false
 	};
 	jumpLink = (link: string) => {
 		// if (!Constant.customerInfo) {
@@ -69,7 +71,10 @@ export default class Layout extends React.Component<LayoutProps> {
 		location.href = link;
 	}
 	render() {
-		const { children, isShowNav } = this.props;
+		const { children, isShowNav, isCommonPage } = this.props;
+		if (isCommonPage) {
+			return <React.Fragment>{children}</React.Fragment>;
+		}
 		return (
 			<div style={{ width: "100%" }}>
 				{/* <LeftSideBar /> */}
