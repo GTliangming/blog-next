@@ -13,6 +13,7 @@ const loadingStore = GetLoadingStore();
 
 
 if (!__SERVER__) {
+  require("assets/css/index.css");
   require("assets/iconfont/iconfont");
 }
 export interface AppProps {
