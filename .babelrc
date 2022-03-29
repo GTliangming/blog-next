@@ -4,6 +4,16 @@
 	],
 	"plugins": [
 		[
+			"styled-components-px2rem",
+			{
+				"rootValue": 100,
+				"unitPrecision": 4,
+				"minPixelValue": 2,
+				"multiplier": 1,
+				"transformRuntime": false
+			}
+		],
+		[
 			"styled-components",
 			{
 				"ssr": true

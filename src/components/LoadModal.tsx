@@ -102,7 +102,7 @@ interface LoadingModalProps {
 @observer
 export default class LoadingModal extends React.Component<LoadingModalProps, {}> {
     static defaultProps: LoadingModalProps = {
-        isNav: true
+        isNav: false
     };
     loadingStore = getStore();
     render() {

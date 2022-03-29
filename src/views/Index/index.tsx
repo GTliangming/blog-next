@@ -12,7 +12,7 @@ export const SideBar = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(${require("./images/cover.jpeg")});
+    background-image: url(${require("assets/images/cover.jpeg")});
 `;
 
 export default class Index extends React.Component {

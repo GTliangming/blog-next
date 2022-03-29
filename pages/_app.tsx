@@ -1,19 +1,16 @@
 import Layout from "components/Layout";
 import LoadingModal from "components/LoadModal";
-import App, { AppContext } from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import React from "react";
 import Constant, { UserInfo } from "utils/constant";
-import { BaseRequest } from "utils/context";
 import { GlobalStyle } from "utils/globalStyle";
 import { PageStatic } from "utils/types";
 import { getStore as GetLoadingStore } from "stores/LoadingStore";
 import Router from "next/router";
 const loadingStore = GetLoadingStore();
-
-
+require("assets/css/index.css");
 if (!__SERVER__) {
-  require("assets/css/index.css");
   require("assets/iconfont/iconfont");
 }
 export interface AppProps {
@@ -28,40 +25,28 @@ export interface AppProps {
 }
 
 export default class MyApp extends App<AppProps> {
-  static async getInitialProps({ Component, ctx }: AppContext) {
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    const req = ctx.req as BaseRequest;
-
-    const baseInfo = { cookie: ctx.req.headers?.cookie || "" };
-
-    Constant.cookie = baseInfo.cookie;
-
-    Constant.customerInfo = null;
-
-    req.pathname = ctx.pathname;
-
+  static getInitialProps = async ({ ctx }) => {
     return {
-      pageProps,
-      customerInfo: null,
-      path: req.path,
-      query: req.query,
+      pageProps: {
+        baseInfo: ctx?.req?.baseInfo,
+        hostname: ctx?.req?.hostname,
+        pathname: ctx?.pathname,
+        query: ctx?.query,
+      },
     };
-  }
-  async componentDidMount() {
+  };
+  componentDidMount() {
     Router.events.on("routeChangeStart", this.showLoading);
     Router.events.on("routeChangeComplete", this.routeChangeComplete);
-    Router.events.on("routeChangeError", loadingStore.hideLoading);
+    Router.events.on("routeChangeError", this.routeChangeComplete);
   }
   componentWillUnmount() {
     Router.events.off("routeChangeStart", this.showLoading);
     Router.events.off("routeChangeComplete", this.routeChangeComplete);
-    Router.events.off("routeChangeError", loadingStore.hideLoading);
+    Router.events.off("routeChangeError", this.routeChangeComplete);
   }
   showLoading = () => {
-    setTimeout(loadingStore.showLoading);
+    loadingStore.showLoading();
   };
   routeChangeComplete = () => {
     loadingStore.hideLoading();
