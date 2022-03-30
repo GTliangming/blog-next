@@ -4,9 +4,10 @@ import { Input, Modal, message } from "antd";
 import { ImgUploadContent } from "./common";
 import AddItem, { ItemTypes } from "./components/addItem";
 import Router from "next/router";
-interface FolderItem {
+export interface FolderItem {
     id: number;
     foldername: string;
+    src?: string;
 }
 interface ImgUploadState {
     folderName: string;

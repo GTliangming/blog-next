@@ -10,6 +10,7 @@ interface ImgUploadModalProps {
     name: string;
     folderid: number;
     onCancel: (visible: boolean) => void;
+    onOk: () => void;
 }
 interface ImgUploadModalState {
     fileKey: number;
@@ -45,7 +46,7 @@ export default class ImgUploadModal extends React.Component<ImgUploadModalProps,
         return Date.now() + Math.floor(Math.random() * (999999 - 100000) + 100000) + 1;
     }
     render() {
-        const { visible, onCancel } = this.props;
+        const { visible, onCancel, onOk } = this.props;
         const props = {
             name: "file",
             data: this.getUploadToken(),
@@ -67,6 +68,7 @@ export default class ImgUploadModal extends React.Component<ImgUploadModalProps,
         return (
             <Modal
                 onCancel={() => onCancel(false)}
+                onOk={() => onOk()}
                 visible={visible}
                 title="上传图片" >
 
