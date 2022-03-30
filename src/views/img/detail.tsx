@@ -13,6 +13,7 @@ const FolderDetailContent = styled(ImgUploadContent)`
 `;
 interface FolderDetailProps {
     name: string;
+    id: number;
 }
 interface FolderDetailState {
     visible: boolean;
@@ -26,13 +27,12 @@ export default class FolderDetail extends React.Component<FolderDetailProps, Fol
             token: null
         };
     }
-    componentDidMount() {
-        console.log(222, this.props);
-        this.getToken();
+    async componentDidMount() {
+        await this.getToken();
     }
     // 获取七牛上传token
     getToken = async () => {
-        const result = await axios.get("http://api.netbugs.cn/api/common/qiniu");
+        const result = await axios.get("https://api.netbugs.cn/api/img/qiniu");
         this.setState({
             token: result.data.token
         });
@@ -42,7 +42,7 @@ export default class FolderDetail extends React.Component<FolderDetailProps, Fol
     }
     render() {
         const { token, visible } = this.state;
-        const { name } = this.props;
+        const { name, id } = this.props;
         return (
             <FolderDetailContent>
                 <PageHeader
@@ -56,7 +56,7 @@ export default class FolderDetail extends React.Component<FolderDetailProps, Fol
                 />
                 <Divider style={{ marginTop: 0 }} />
                 <Empty style={{ width: "100%" }} />
-                <ImgUploadModal token={token} visible={visible} name={name} onCancel={() => this.changeUploadModal(false)} />
+                <ImgUploadModal token={token} visible={visible} folderid={id} name={name} onCancel={() => this.changeUploadModal(false)} />
             </FolderDetailContent>
         );
     }

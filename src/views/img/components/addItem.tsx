@@ -46,10 +46,10 @@ export interface ImgItemProps {
 
 export default class AddItem extends React.Component<ImgItemProps, {}>{
     render() {
-        const { type, onClick } = this.props;
+        const { type, onClick, folderName } = this.props;
         return (
             <AddItemContent type={type} onClick={onClick}>
-                {type === ItemTypes.SHOW && <FolderName>名称</FolderName>}
+                {type === ItemTypes.SHOW && <FolderName>{folderName}</FolderName>}
             </AddItemContent>
         );
     }

@@ -5,7 +5,8 @@ export default withConstants(FolderDetail);
 export const getServerSideProps = async (ctx: Global.Context) => {
     return {
         props: {
-            name: ctx.query?.name
+            name: ctx.query?.name,
+            id: ctx.query?.id
         },
     };
 };
